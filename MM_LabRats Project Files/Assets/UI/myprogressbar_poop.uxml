@@ -1,4 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI/progressbarsniffuss.uss?fileID=7433441132597879392&amp;guid=04705d4c0383a4913a9e93269687ac9d&amp;type=3#progressbarsniffuss" />
-    <ui:ProgressBar value="100" name="ProgressBar" style="scale: 0.5 0.5; transform-origin: left bottom; position: relative; bottom: -190px; right: auto; font-size: 22px; -unity-font-style: bold; color: rgb(1, 20, 51); left: 0;" />
-</ui:UXML>

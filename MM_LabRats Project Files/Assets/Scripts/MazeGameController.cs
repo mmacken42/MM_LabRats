@@ -32,8 +32,8 @@ public class MazeGameController : MonoBehaviour
     private int numPoops;
 
     //Player Abilities
-    public CheeseSniffingCooldownBar myCooldownForSniffing;
-    public PoopCooldownBar myCooldownForPooping;
+    public PlayerAbilityController sniffAbilityController;
+    public PlayerAbilityController poopAbilityController;
 
     private void Start()
     {
@@ -98,7 +98,7 @@ public class MazeGameController : MonoBehaviour
 
         mazeGenerator.TempRevealMazeSolution(mazeGenerator.GetPlayerCurrentCell(), mazeGenerator.GetEndOfMaze());
 
-        myCooldownForSniffing.StartAbilityCooldown();
+        sniffAbilityController.StartAbilityCooldown();
     }
 
     public void PlayerDroppingPoopMarker()
@@ -107,7 +107,7 @@ public class MazeGameController : MonoBehaviour
 
         numPoops++;
 
-        myCooldownForPooping.StartAbilityCooldown();
+        poopAbilityController.StartAbilityCooldown();
     }
 
     public void PlayerSolvedTheMaze()
@@ -115,8 +115,8 @@ public class MazeGameController : MonoBehaviour
         playerSolvingMaze = false;
         totalTimeSeconds += levelTimer;
         ResetLevelTimer();
-        myCooldownForSniffing.ResetAbility();
-        myCooldownForPooping.ResetAbility();
+        sniffAbilityController.ResetAbility();
+        poopAbilityController.ResetAbility();
 
         switch (currentLevel)
         {
@@ -161,9 +161,6 @@ public class MazeGameController : MonoBehaviour
 
     private void HandleEndOfGame()
     {
-        myCooldownForSniffing.gameObject.SetActive(false);
-        myCooldownForPooping.gameObject.SetActive(false);
-
         mazeGenerator.DestroyOldMaze();
         mazeGenerator.DestroyOldPlayer();
         mazeGenerator.TurnOnOverviewCamera();

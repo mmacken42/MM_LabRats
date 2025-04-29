@@ -100,7 +100,7 @@ public class PlayerLabRat : MonoBehaviour
 
     private IEnumerator SniffOutSolution()
     {
-        if (gameController.myCooldownForSniffing.CanUseAbility())
+        if (gameController.sniffAbilityController.CanUseAbility())
         {
             sniffingOutSolution = true;
             playerBody.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.Euler(65, 0, 0));
@@ -120,7 +120,7 @@ public class PlayerLabRat : MonoBehaviour
 
     private IEnumerator DropPoopMarker()
     {
-        if (gameController.myCooldownForPooping.CanUseAbility())
+        if (gameController.poopAbilityController.CanUseAbility())
         {
             currentNumPoops++;
             gameController.PlayerDroppingPoopMarker();

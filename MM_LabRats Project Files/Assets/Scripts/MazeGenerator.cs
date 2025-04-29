@@ -50,17 +50,17 @@ public class MazeGenerator : MonoBehaviour
     private bool buildingNewMaze;
     private float cameraRotationSpeed = 15f;
 
-    //Player ability cooldown progress bars
-    private CheeseSniffingCooldownBar myCooldownForSniffing;
-    private PoopCooldownBar myCooldownForPooping;
+    //Player Abilities
+    private PlayerAbilityController sniffAbilityController;
+    private PlayerAbilityController poopAbilityController;
 
     private void Start()
     {
         //GenerateNewMaze();
 
         gameController = GetComponent<MazeGameController>();
-        myCooldownForSniffing = gameController.myCooldownForSniffing;
-        myCooldownForPooping = gameController.myCooldownForPooping;
+        sniffAbilityController = gameController.sniffAbilityController;
+        poopAbilityController = gameController.poopAbilityController;
     }
 
     private void Update()
@@ -73,9 +73,6 @@ public class MazeGenerator : MonoBehaviour
 
     public void GenerateNewMaze()
     {   
-        myCooldownForSniffing.ToggleBarVisibile(false);
-        myCooldownForPooping.ToggleBarVisibile(false);
-        
         buildingNewMaze = false;
         
         DestroyOldPlayer();
@@ -592,13 +589,8 @@ public class MazeGenerator : MonoBehaviour
 
         gameController.SetPlayerSolvingMaze(true);
 
-        myCooldownForSniffing.gameObject.SetActive(true);
-        myCooldownForSniffing.ResetAbility();
-        myCooldownForPooping.gameObject.SetActive(true);
-        myCooldownForPooping.ResetAbility();
-
-        myCooldownForSniffing.ToggleBarVisibile(true);
-        myCooldownForPooping.ToggleBarVisibile(true);
+        sniffAbilityController.ResetAbility();
+        poopAbilityController.ResetAbility();
     }
 
     public void TempRevealMazeSolution(MazeCell start, MazeCell end)
