@@ -26,18 +26,14 @@ public class PlayerLabRat : MonoBehaviour
     private float secondsToPauseWhileSniffingSolution = 1f;
     private bool isPooping;
     private float secondsToPauseWhilePooping = 1.5f;
-    private int currentNumPoops;
-    private int maxNumPoops = 5;
     private List<GameObject> poops;
 
     private void Start()
     {
-        GameObject tmp = GameObject.FindGameObjectWithTag("GameController");
-        gameController = tmp.GetComponent<MazeGameController>();
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MazeGameController>();
 
         sniffingOutSolution = false;
         isPooping = false;
-        currentNumPoops = 0;
         poops = new List<GameObject>();
 
         TogglePlayerCamera(true);
@@ -122,7 +118,6 @@ public class PlayerLabRat : MonoBehaviour
     {
         if (gameController.poopAbilityController.CanUseAbility())
         {
-            currentNumPoops++;
             gameController.PlayerDroppingPoopMarker();
 
             isPooping = true;

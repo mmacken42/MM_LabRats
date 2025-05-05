@@ -546,7 +546,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 100
+  far clip plane: 150
   field of view: 90
   orthographic: 0
   orthographic size: 5
@@ -663,10 +663,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabMazeCell: {fileID: 831303667651641545, guid: 1a5ed522d53a047fcafca0679007eb00, type: 3}
-  numRowsInMaze: 24
-  numColumnsInMaze: 24
-  animateMazeGeneration: 1
-  delaySecondsBtwAnimatedMazeCellOperations: 0.025
   gameCamera: {fileID: 330585545}
   textGenNewMaze: {fileID: 1320980916}
   textPlayerControls: {fileID: 295666039}
@@ -700,6 +696,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 743485029}
+  level1Size: {x: 6, y: 6}
+  level2Size: {x: 12, y: 12}
+  level3Size: {x: 18, y: 18}
+  level4Size: {x: 24, y: 24}
+  level5Size: {x: 30, y: 30}
   scoreUI: {fileID: 291504612}
   textTimerScore: {fileID: 1062659652}
   textSniffScore: {fileID: 19752122}

@@ -14,11 +14,11 @@ public class MazeGameController : MonoBehaviour
     private bool playerSolvingMaze = false;
 
     //Level dimensions (levels 1 -> 5)
-    private Vector2Int level1Size = new(6, 6);
-    private Vector2Int level2Size = new(12, 12);
-    private Vector2Int level3Size = new(18, 18);
-    private Vector2Int level4Size = new(24, 24);
-    private Vector2Int level5Size = new(30, 30);
+    public Vector2Int level1Size = new(6, 6);
+    public Vector2Int level2Size = new(12, 12);
+    public Vector2Int level3Size = new(18, 18);
+    public Vector2Int level4Size = new(24, 24);
+    public Vector2Int level5Size = new(30, 30);
     //keep track of current level
     private int currentLevel;
 
@@ -79,9 +79,8 @@ public class MazeGameController : MonoBehaviour
         numSniffs = 0;
         numPoops = 0;
 
-        mazeGenerator.numRowsInMaze = level1Size.x;
-        mazeGenerator.numColumnsInMaze = level1Size.y;
-        mazeGenerator.delaySecondsBtwAnimatedMazeCellOperations = 0.025f;
+        mazeGenerator.SetNewMazeCreationDimensions(level1Size.x, level1Size.y);
+        mazeGenerator.SetNewDelayBtwMazeCreationOperations(0.025f);
 
         mazeGenerator.GenerateNewMaze();
     }
@@ -122,30 +121,26 @@ public class MazeGameController : MonoBehaviour
         {
             case 1:
                 currentLevel = 2;
-                mazeGenerator.numRowsInMaze = level2Size.x;
-                mazeGenerator.numColumnsInMaze = level2Size.y;
-                mazeGenerator.delaySecondsBtwAnimatedMazeCellOperations = 0.020f;
+                mazeGenerator.SetNewMazeCreationDimensions(level2Size.x, level2Size.y);
+                mazeGenerator.SetNewDelayBtwMazeCreationOperations(0.020f);
                 mazeGenerator.GenerateNewMaze();
                 break;
             case 2:
                 currentLevel = 3;
-                mazeGenerator.numRowsInMaze = level3Size.x;
-                mazeGenerator.numColumnsInMaze = level3Size.y;
-                mazeGenerator.delaySecondsBtwAnimatedMazeCellOperations = 0.015f;
+                mazeGenerator.SetNewMazeCreationDimensions(level3Size.x, level3Size.y);
+                mazeGenerator.SetNewDelayBtwMazeCreationOperations(0.015f);
                 mazeGenerator.GenerateNewMaze();
                 break;
             case 3:
                 currentLevel = 4;
-                mazeGenerator.numRowsInMaze = level4Size.x;
-                mazeGenerator.numColumnsInMaze = level4Size.y;
-                mazeGenerator.delaySecondsBtwAnimatedMazeCellOperations = 0.010f;
+                mazeGenerator.SetNewMazeCreationDimensions(level4Size.x, level4Size.y);
+                mazeGenerator.SetNewDelayBtwMazeCreationOperations(0.010f);
                 mazeGenerator.GenerateNewMaze();
                 break;
             case 4:
                 currentLevel = 5;
-                mazeGenerator.numRowsInMaze = level5Size.x;
-                mazeGenerator.numColumnsInMaze = level5Size.y;
-                mazeGenerator.delaySecondsBtwAnimatedMazeCellOperations = 0.005f;
+                mazeGenerator.SetNewMazeCreationDimensions(level5Size.x, level5Size.y);
+                mazeGenerator.SetNewDelayBtwMazeCreationOperations(0.005f);
                 mazeGenerator.GenerateNewMaze();
                 break;
             case 5:

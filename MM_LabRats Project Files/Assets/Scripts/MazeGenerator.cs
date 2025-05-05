@@ -11,10 +11,8 @@ public class MazeGenerator : MonoBehaviour
     //Maze details
     [Tooltip("cell size should be 1x1 with walls 0.1 thick")]
     public MazeCell prefabMazeCell;
-    [Range(5, 30)]
-    public int numRowsInMaze = 10;
-    [Range(5, 30)]
-    public int numColumnsInMaze = 10;
+    private int numRowsInMaze = 10;
+    private int numColumnsInMaze = 10;
     
     private Vector2Int mazeSize;
     private readonly float offsetBtwCells = 0.9f; //cells are 1x1, walls are 0.1 thick, so 0.9 offsets
@@ -25,9 +23,9 @@ public class MazeGenerator : MonoBehaviour
     List<MazeCell> completedCells;
 
     //Animation options (just looks cool)
-    public bool animateMazeGeneration = true;
+    private bool animateMazeGeneration = true;
     [Range(0.01f, 0.09f)]
-    public float delaySecondsBtwAnimatedMazeCellOperations = 0.025f;
+    private float delaySecondsBtwAnimatedMazeCellOperations = 0.025f;
 
     //Camera ref (for repositioning based on maze size)
     [Tooltip("Camera reconfigures based on chosen maze size")]
@@ -718,5 +716,16 @@ public class MazeGenerator : MonoBehaviour
     public void TurnOnOverviewCamera()
     {
         gameCamera.enabled = true;
+    }
+
+    public void SetNewDelayBtwMazeCreationOperations(float newDelay)
+    {
+        delaySecondsBtwAnimatedMazeCellOperations = newDelay;
+    }
+
+    public void SetNewMazeCreationDimensions(int newRows, int newCols)
+    {
+        numRowsInMaze = newRows;
+        numColumnsInMaze = newCols;
     }
 }
